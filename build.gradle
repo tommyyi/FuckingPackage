@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.example.JavaExec'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+    }
+}
+
+/*in gradle, double click "/FuckingPackage/Tasks/build/jar" to create executable jar
+* then you can find it in folder"/build/libs"*/
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+    baseName = 'huobaoyingyuan'
+    version = '0.1.0'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
